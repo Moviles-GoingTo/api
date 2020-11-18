@@ -10,3 +10,4 @@ namespace GoingTo_API.Settings
         public string Secret { get; set; }
     }
 }
+    

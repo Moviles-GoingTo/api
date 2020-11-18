@@ -20,7 +20,18 @@ namespace GoingTo_API.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// returns the profile of a user by id
+        /// </summary>
+        /// <returns></returns> 
+        [HttpGet] 
+        public async Task<UserProfileResource> GetUserProfileById(int id)
+        {
+            var userProfile = await _profileService.FindById(id);
+            var resource = _mapper.Map<GoingTo_API.Domain.Models.Accounts.UserProfile, UserProfileResource>(userProfile);
+            return resource;
 
+        }
         /// <summary>
         /// returns all the profiles in the system
         /// </summary>

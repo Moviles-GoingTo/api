@@ -20,13 +20,21 @@ namespace GoingTo_API.Controllers
     {
 
         private readonly IUserService _userService;
+        private readonly IUserProfileService _userProfileService;
         private readonly IMapper _mapper;
 
-        public UsersController(IUserService userService, IMapper mapper)
+        public UsersController(IUserService userService, IUserProfileService userProfileService, IMapper mapper)
         {
             _userService = userService;
+            _userProfileService = userProfileService;
             _mapper = mapper;
         }
+
+        /// <summary>
+        /// returns all the users on the system.
+        /// </summary>
+        /// <returns></returns> 
+        
 
         /// <summary>
         /// returns all the users on the system.
@@ -62,14 +70,25 @@ namespace GoingTo_API.Controllers
         public async Task<IActionResult> PostAsync([FromBody] SaveUserResource resource)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState.GetErrorMessages());
+                return BadRequest(ModelState.GetErrorMessages()); 
+
             var user = _mapper.Map<SaveUserResource, User>(resource);
-            var result = await _userService.SaveAsync(user);
+            var userProfile = _mapper.Map<SaveUserResource, UserProfile>(resource); 
 
-            if (!result.Success)
-                return BadRequest(result.Message);
+            var resultUser = await _userService.SaveAsync(user);
+            userProfile.UserId = resultUser.Resource.Id;
+            var resultUserProfile = await _userProfileService.SaveAsync(userProfile);
 
-            var userResource = _mapper.Map<User, UserResource>(result.Resource);
+            if (!resultUser.Success && !resultUserProfile.Success)
+                return BadRequest(resultUser.Message + "\n" + resultUserProfile.Message);
+
+            if (!resultUser.Success)
+                return BadRequest(resultUser.Message);
+
+            if (!resultUserProfile.Success)
+                return BadRequest(resultUserProfile.Message);
+
+            var userResource = _mapper.Map<User, UserResource>(resultUser.Resource);
             return Ok(userResource);
         }
 
