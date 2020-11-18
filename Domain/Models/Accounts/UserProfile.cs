@@ -15,6 +15,12 @@ namespace GoingTo_API.Domain.Models.Accounts
         public int UserId { get; set; }
         public User User { get; set; }
         public int CountryId { get; set; }
-        public Country Country { get; set; }
+        public Country Country { get; set; } 
+
+        //Datos de laa tarjeta 
+        public string CardNumber { get; set; } 
+        public string ExpirationDate { get; set; } 
+        public string Cvv { get; set; } 
+
     }
 }
