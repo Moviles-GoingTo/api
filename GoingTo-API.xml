@@ -722,6 +722,12 @@
             <response code="204">the tip was unasigned successfully</response>
             <returns></returns>
         </member>
+        <member name="M:GoingTo_API.Controllers.UserProfilesController.GetUserProfileById(System.Int32)">
+            <summary>
+            returns the profile of a user by id
+            </summary>
+            <returns></returns> 
+        </member>
         <member name="M:GoingTo_API.Controllers.UserProfilesController.GetAllAsync">
             <summary>
             returns all the profiles in the system
@@ -758,6 +764,10 @@
             <returns></returns>
         </member>
         <member name="M:GoingTo_API.Controllers.UsersController.GetAllAsync">
+            <summary>
+            returns all the users on the system.
+            </summary>
+            <returns></returns> 
             <summary>
             returns all the users on the system.
             </summary>

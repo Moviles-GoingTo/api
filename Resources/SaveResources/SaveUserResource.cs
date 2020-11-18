@@ -38,4 +38,3 @@ namespace GoingTo_API.Resources
         public int CountryId { get; set; }
     }
 }
-}

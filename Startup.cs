@@ -124,7 +124,7 @@ namespace GoingTo_API
             
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "GoingTo API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "GoingTo API V1", Version = "v1" });
                 c.ExampleFilters();
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);

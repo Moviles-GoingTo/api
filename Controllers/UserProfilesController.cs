@@ -28,7 +28,7 @@ namespace GoingTo_API.Controllers
         public async Task<UserProfileResource> GetUserProfileById(int id)
         {
             var userProfile = await _profileService.FindById(id);
-            var resource = _mapper.Map<GoingTo_API.Domain.Models.Accounts.UserProfile, UserProfileResource>(userProfile);
+            var resource = _mapper.Map<GoingTo_API.Domain.Models.Accounts.UserProfile, UserProfileResource>(userProfile.Profile);
             return resource;
 
         }
