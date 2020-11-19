@@ -121,7 +121,7 @@ namespace GoingTo_API
             services.AddAutoMapper(typeof(Startup));
 
 
-            
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GoingTo API", Version = "v1" });

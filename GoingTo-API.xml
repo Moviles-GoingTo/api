@@ -1,0 +1,827 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GoingTo-API</name>
+    </assembly>
+    <members>
+        <member name="M:GoingTo_API.Controllers.AchievementsController.GetAllAsync">
+            <summary>
+            returns all the achievements in the system.
+            </summary>
+            <response code="200">returns all the achievements in the system.</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.AchievementsController.PostAsync(GoingTo_API.Resources.SaveAchievementResource)">
+            <summary>
+            creates an achievements in the system.
+            </summary>
+            <response code="201">creates an achievements in the system.</response>
+            <response code="400">unable to create the achievement due to validation.</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.AchievementsController.UpdateAsync(System.Int32,GoingTo_API.Resources.SaveAchievementResource)">
+            <summary>
+            allows to change the Name,Text and/or Points of an existing achievement
+            </summary>
+            <param name="id">the id of the achievement to update</param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.BenefitsController.GetAllAsync">
+            <summary>
+            returns all the benefits in the system
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.BenefitsController.PostAsync(GoingTo_API.Resources.SaveResources.SaveBenefitResource)">
+            <summary>
+            add a benefit in the system
+            </summary>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.BenefitsController.PutAsync(System.Int32,GoingTo_API.Resources.SaveResources.SaveBenefitResource)">
+            <summary>
+            modify a benefit in the system.
+            </summary>
+            <param name="id"></param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.BenefitsController.DeleteAsync(System.Int32)">
+            <summary>
+            remove a benefit from the system.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CategoriesController.GetAllAsync">
+            <summary>
+            returns all the categories in the system
+            </summary>
+            <response code="200">returns all the categories in the system</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CategoriesController.GetAsync(System.Int32)">
+            <summary>
+            returns a category by id
+            </summary>
+            <param name="id" example="1"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CategoriesController.PostAsync(GoingTo_API.Resources.SaveCategoryResource)">
+            <summary>
+            add a category in the system
+            </summary>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CategoriesController.PutAsync(System.Int32,GoingTo_API.Resources.SaveCategoryResource)">
+            <summary>
+            update a category in the system
+            </summary>
+            <param name="id" example="1"></param>
+            <param name="resource" example="Turismo aventurero"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CategoriesController.DeleteAsync(System.Int32)">
+            <summary>
+            delete a category from the system
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CategoryPlacesController.GetAllByCategoryIdAsync(System.Int32)">
+            <summary>
+            returns all the places that belong to this category
+            </summary>
+            <param name="categoryId" example="1"></param>
+            <response code="200">returns all the places in the category.</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CitiesController.GetAllAsync">
+            <summary>
+            returns all the cities in the system
+            </summary>
+            <response code="200">returns all the cities in the system</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CitiesController.GetAsync(System.String)">
+            <summary>
+            returns one city by name
+            </summary>
+            <param name="name" example="CuSco">the city name</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CityPlacesController.GetAllByCityIdAsync(System.Int32)">
+            <summary>
+            returns all the places of one city in the system.
+            </summary>
+            <param name="cityId">the city id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CountriesController.GetAllAsync">
+            <summary>
+            returns all the countries in the system
+            </summary>
+            <response code="200">returns all the countries in the system</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CountriesController.GetByIdAsync(System.String)">
+            <summary>
+            returns a country by searching name
+            </summary>
+            <param name="name" example="PeRu">the country id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CountryCitiesController.GetAllByCountryIdAsync(System.Int32)">
+            <summary>
+            returns all the cities in one country
+            </summary>
+            <param name="countryId" example = "1">country Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CountryCurrenciesController.AssignCountryCurrency(System.Int32,System.Int32)">
+            <summary>
+            assign a currency to a country
+            </summary>
+            <param name="countryId">countryId</param>
+            <param name="currencyId"></param>
+            <response code="204">the currency was asigned successfully</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CountryCurrenciesController.UnassignCountryCurrency(System.Int32,System.Int32)">
+            <summary>
+            unassign a currency to a country
+            </summary>
+            <param name="countryId"></param>
+            <param name="currencyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CountryLanguagesController.GetAllByCountryIdAsync(System.Int32)">
+            <summary>
+            returns all the languages of one country in the system.
+            </summary>
+            <param name="countryId">the country id</param>
+            <response code="200">returns all the languages of one country in the system. </response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CountryLanguagesController.AssignCountryLanguage(System.Int32,System.Int32)">
+            <summary>
+            assign a language to a country
+            </summary>
+            <param name="countryId"></param>
+            <param name="languageId"></param>
+            <response code="204">the language was asigned successfully</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CountryLanguagesController.UnasignCountryLanguage(System.Int32,System.Int32)">
+            <summary>
+            delete a language from one country
+            </summary>
+            <param name="countryId"></param>
+            <param name="languageId"></param>
+            <response code="204">the language was unasigned successfully</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CurrenciesController.GetAllAsync">
+            <summary>
+            return all the currencies on the system
+            </summary>
+            <response code="200">returns all the Currencies in the system.</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CurrenciesController.GetAsync(System.Int32)">
+            <summary>
+            return a currency by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.CurrenciesController.PostAsync(GoingTo_API.Resources.SaveCurrencyResource)">
+            <summary>
+            create a currency on the system
+            </summary>
+            <param name="resource"></param>
+            <response code="201">creates a Currency in the system.</response>
+            <response code="400">unable to create the Currency due to validation.</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.EstateReviewsController.GetReviewsBypartnerId(System.Int32)">
+            <summary>
+            returns all the reviews of a Estate by EstateId
+            </summary>
+            <param name="estateId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.EstatesController.GetAllAsync">
+            <summary>
+            returns all the Estates in the system.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.EstatesController.ListAllByPartnerName(System.String)">
+            <summary>
+            returns all the Estates by partner name.
+            </summary>
+            <param name="partnerName" example=""></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.EstatesController.PostAsync(System.Int32,System.Int32,GoingTo_API.Resources.SaveResources.SaveEstateResource)">
+            <summary>
+            creates an Estate in the system.
+            </summary>
+            <param name="partnerId"></param>
+            <param name="locatableId"></param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.EstatesController.PutAsync(System.Int32,GoingTo_API.Resources.SaveResources.SaveEstateResource)">
+            <summary>
+            modify an Estate in the system.
+            </summary>
+            <param name="id"></param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.EstatesController.DeleteAsync(System.Int32)">
+            <summary>
+            remove an Estate in the system
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.EstateServicesController.GetAllEstateServicesByEstateId(System.Int32)">
+            <summary>
+            returns the Estate Services by EstateId
+            </summary>
+            <param name="estateId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.EstateServicesController.AssignPlanBenefit(System.Int32,System.Int32)">
+            <summary>
+            assign a Service to a Estate in the system
+            </summary>
+            <param name="estateId"></param>
+            <param name="serviceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.EstateServicesController.UnassignPlanBenefit(System.Int32,System.Int32)">
+            <summary>
+            unassign a Service to a Estate in the system
+            </summary>
+            <param name="estateId"></param>
+            <param name="serviceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.FavouritesController.GetAllByUserIdAsync(System.Int32)">
+            <summary>
+            returns all the favourites locatables of one user in the system.
+            </summary>
+            <param name="userId">the user id</param>
+            <response code="200">returns all the favourites locatables of one user in the system. </response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.FavouritesController.AssignFavourite(System.Int32,System.Int32)">
+            <summary>
+            add a locatable to the user's favorites collection.
+            </summary>
+            <param name="userId"  example="1"></param>
+            <param name="locatableId"  example="1"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.FavouritesController.UnassignFavourite(System.Int32,System.Int32)">
+            <summary>
+            delete a favourite locatable from one user
+            </summary>
+            <param name="userId"></param>
+            <param name="locatableId"></param>
+            <response code="204">the favourite locatable was unasigned successfully</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.LanguageCountriesController.GetAllByLanguageId(System.Int32)">
+            <summary>
+            returns all the countries by language id
+            </summary>
+            <param name="languageId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.LanguagesController.GetAllAsync">
+            <summary>
+            returns all the languages in the system
+            </summary>
+            <response code="200">returns all the languages in the system</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.LanguagesController.GetAsync(System.Int32)">
+            <summary>
+            returns one language by id
+            </summary>
+            <param name="id" example="1">the language id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.LanguagesController.PostAsync(GoingTo_API.Resources.SaveLanguageResource)">
+            <summary>
+            creates a language in the system.
+            </summary>
+            <response code="201">creates a language in the system.</response>
+            <response code="400">unable to create the language due to validation.</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.LanguagesController.PutAsync(System.Int32,GoingTo_API.Resources.SaveLanguageResource)">
+            <summary>
+            allows to change the ShortName and/or FullName of an existing Language
+            </summary>
+            <param name="id">the id of the language to update</param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.LocatableReviewsController.GetReviewsByLocatableIdAsync(System.Int32)">
+            <summary>
+            returns all reviews of a locatable in the system
+            </summary>
+            <response code="200">returns all reviews of a locatable in the system</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.LocatablesController.GetAllAsync">
+            <summary>
+            returns all the locatables in the system
+            </summary>
+            <response code="200">returns all the locatables in the system</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.LocatablesController.GetByIdAsync(System.Int32)">
+            <summary>
+            returns one locatable by id
+            </summary>
+            <param name="id" example="1">the locatable id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.LocatableTipsController.GetTipsByLocatableIdAsync(System.Int32)">
+            <summary>
+            returns all tips of a locatable in the system
+            </summary>
+            <response code="200">returns all tips of a locatable in the system</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PartnerProfileController.GetByPartnerId(System.Int32)">
+            <summary>
+            returns a partner profile by partnerId
+            </summary>
+            <param name="partnerId"></param>
+            <response code="200">return a partner profile</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PartnerProfileController.PostAsync(System.Int32,GoingTo_API.Resources.SaveResources.SavePartnerProfileResource)">
+            <summary>
+            create a partner profile in the system.
+            </summary>
+            <param name="partnerId"></param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PartnerProfileController.UpdatePartnerProfile(System.Int32,GoingTo_API.Resources.SaveResources.SavePartnerProfileResource)">
+            <summary>
+            modify a partner profile in the system
+            </summary>
+            <param name="id"></param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PartnerProfileController.DeleteAsync(System.Int32)">
+            <summary>
+            remove a partner profile from the system
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PartnersController.GetAllAsync">
+            <summary>
+            returns all the partners in the system
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PartnersController.PostAsync(GoingTo_API.Resources.SaveResources.SavePartnerResource)">
+            <summary>
+            creates a partner in the system
+            </summary>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PartnersController.PutAsync(System.Int32,GoingTo_API.Resources.SaveResources.SavePartnerResource)">
+            <summary>
+            modify a partner in the system
+            </summary>
+            <param name="id"></param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PartnersController.DeleteAsync(System.Int32)">
+            <summary>
+            remove a partner in the system
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PlaceCategoriesController.GetAllByPlaceIdAsync(System.Int32)">
+            <summary>
+            returns all the place's categories
+            </summary>
+            <param name="placeId" example="1"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PlaceCategoriesController.AssignPlaceCategory(System.Int32,System.Int32)">
+            <summary>
+            assign a category to one place
+            </summary>
+            <param name="placeId" example="1"></param>
+            <param name="categoryId" example="1"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PlaceCategoriesController.UnasignPlaceCategory(System.Int32,System.Int32)">
+            <summary>
+            unnasign a category from one place
+            </summary>
+            <param name="placeId" example="1"></param>
+            <param name="categoryId" example="1"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PlacesController.GetAllAsync">
+            <summary>
+            returns al the places in the system.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PlacesController.PostAsync(GoingTo_API.Resources.SavePlaceResource)">
+            <summary>
+            creates a place in the system
+            </summary>
+            <param name="resource">a place resource</param>
+            <response code="201">creates a place in the system</response>
+            <response code="400">unable to create the place due validation</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PlacesController.FindByName(System.String)">
+            <summary>
+            returns one place  by id
+            </summary>
+            <param name="name" example="Machu Picchu">the place Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PlacesController.UpdateAsync(System.Int32,GoingTo_API.Resources.SavePlaceResource)">
+            <summary>
+            allows to change the name of a place
+            </summary>
+            <param name="id"></param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PlanBenefitsController.GetAllBenefitsByPlanId(System.Int32)">
+            <summary>
+            returns all the benefits from one plan in the system
+            </summary>
+            <param name="planId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PlanBenefitsController.AssignPlanBenefit(System.Int32,System.Int32)">
+            <summary>
+            assign a benefit to a plan in the system
+            </summary>
+            <param name="planId"></param>
+            <param name="benefitId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PlanBenefitsController.UnassignUserPlan(System.Int32,System.Int32)">
+            <summary>
+            unnasign a benefit to a plan in the system
+            </summary>
+            <param name="planId"></param>
+            <param name="benefitId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PlansController.GetAllAsync">
+            <summary>
+            returns all the plans in the system
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PlansController.PostAsync(GoingTo_API.Resources.SaveResources.SavePlanResource)">
+            <summary>
+            creates a plan in the system
+            </summary>
+            <param name="resource"></param>
+            <response code="201">creates a plan in the system</response>
+            <response code="400">unable to create the plan in the system due to validation</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PlansController.UpdateAsync(System.Int32,GoingTo_API.Resources.SaveResources.SavePlanResource)">
+            <summary>
+            modify a plan in the system
+            </summary>
+            <param name="id"></param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PlansController.DeleteAsync(System.Int32)">
+            <summary>
+            remove a plan in the system
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PlanUsersController.AssignUserPlan(System.Int32,System.Int32)">
+            <summary>
+            assign a plan to an user in the system
+            </summary>
+            <param name="userId"></param>
+            <param name="planId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PlanUsersController.UnassignUserPlan(System.Int32,System.Int32)">
+            <summary>
+            unnasign a plan to an user in the system
+            </summary>
+            <param name="userId"></param>
+            <param name="planId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PromosController.GetAllPromos">
+            <summary>
+            returns all the promos in the system.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PromosController.GetPromoId(System.Int32)">
+            <summary>
+            returns a promo by id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PromosController.PostAsync(System.Int32,GoingTo_API.Resources.SaveResources.SavePromoResource)">
+            <summary>
+            create a promo in the system.
+            </summary>
+            <param name="partnerId"></param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PromosController.PutAsync(System.Int32,GoingTo_API.Resources.SaveResources.SavePromoResource)">
+            <summary>
+            modify a promo in the system.
+            </summary>
+            <param name="id"></param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.PromosController.DeleteAsync(System.Int32)">
+            <summary>
+            delete a promo from the system
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.ReviewsController.GetAsync(System.Int32)">
+            <summary>
+            returns one review  by id
+            </summary>
+            <param name="id" example="1">the review Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.ReviewsController.PostAsync(GoingTo_API.Resources.SaveReviewResource)">
+            <summary>
+            creates a review in the system
+            </summary>
+            <param name="resource">a review resource</param>
+            <response code="201">creates a review in the system</response>
+            <response code="400">unable to create the review due validation</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.ReviewsController.PutAsync(System.Int32,GoingTo_API.Resources.SaveReviewResource)">
+            <summary>
+            updates a review in the system
+            </summary>
+            <param name="resource">A review resource</param>
+            <param name="id">The id of the review to update</param>
+            <response code="201">Updates a review in the system</response>
+            <response code="400">Unable to update the review due validation</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.ReviewsController.DeleteAsync(System.Int32)">
+            <summary>
+            deletes a review in the system
+            </summary>
+            <response code="201">Deletes a review in the system</response>
+            <response code="400">Unable to delete the review due validation</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.ServicesController.GetAllAsync">
+            <summary>
+            returns all the services in the system
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.ServicesController.GetAsync(System.Int32)">
+            <summary>
+            returns a service by id.
+            </summary>
+            <param name="serviceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.ServicesController.PostAsync(GoingTo_API.Resources.SaveResources.SaveServiceResource)">
+            <summary>
+            create a service in the system.
+            </summary>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.ServicesController.PutAsync(GoingTo_API.Resources.SaveResources.SaveServiceResource,System.Int32)">
+            <summary>
+            modify a service in the system.
+            </summary>
+            <param name="resource"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UserAchievementController.GetAllByUserIdAsync(System.Int32)">
+            <summary>
+            returns all the achievements of an user
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UserAchievementController.AssignUserAchievement(System.Int32,System.Int32)">
+            <summary>
+            assign an achievement to an users
+            </summary>
+            <param name="userId"></param>
+            <param name="achievementId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UserAchievementController.UnassignUserAchievement(System.Int32,System.Int32)">
+            <summary>
+            delete an achivement from one user
+            </summary>
+            <param name="userId"></param>
+            <param name="achievementId"></param>
+            <response code="204">the achievement was unasigned successfully</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UserLocatableReviewsController.PostAsync(System.Int32,GoingTo_API.Resources.SaveReviewResource,System.Int32)">
+            <summary>
+            creates a review for a Locatable in the system.
+            </summary>
+            <param name="locatableId"></param>
+            <param name="resource"></param>
+            <param name="userProfileId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UserLocatableReviewsController.PutAsync(System.Int32,System.Int32,GoingTo_API.Resources.SaveReviewResource)">
+            <summary>
+            allows to change the Comment and Stars an existing Review
+            </summary>
+            <param name="locatableId"></param>
+            <param name="reviewId">the id of the Review to update</param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UserLocatableReviewsController.DeleteAsync(System.Int32,System.Int32)">
+            <summary>
+            delete a review from one locatable
+            </summary>
+            <param name="locatableId"></param>
+            <param name="reviewId"></param>
+            <response code="204">the review was unasigned successfully</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UserLocatablesTipsController.PostAsync(System.Int32,System.Int32,GoingTo_API.Resources.SaveTipResource)">
+            <summary>
+            creates a Tip for a Locatable in the system.
+            </summary>
+            <param name="locatableId"></param>
+            <param name="resource"></param>
+            <param name="userProfileId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UserLocatablesTipsController.PutAsync(System.Int32,System.Int32,System.Int32,GoingTo_API.Resources.SaveTipResource)">
+            <summary>
+            allows to change the Text an existing Tip
+            </summary>
+            <param name="locatableId"></param>
+            <param name="tipId">the id of the Tip to update</param>
+            <param name="resource"></param>
+            <param name="userProfileId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UserLocatablesTipsController.DeleteAsync(System.Int32,System.Int32)">
+            <summary>
+            delete a tip from one locatable
+            </summary>
+            <param name="locatableId"></param>
+            <param name="tipId"></param>
+            <response code="204">the tip was unasigned successfully</response>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UserProfilesController.GetUserProfileById(System.Int32)">
+            <summary>
+            returns the profile of a user by id
+            </summary>
+            <returns></returns> 
+        </member>
+        <member name="M:GoingTo_API.Controllers.UserProfilesController.GetAllAsync">
+            <summary>
+            returns all the profiles in the system
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UserProfilesController.PostAsync(GoingTo_API.Resources.SaveProfileResource)">
+            <summary>
+            add a profile in the system
+            </summary>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UserProfilesController.PutAsync(System.Int32,GoingTo_API.Resources.SaveProfileResource)">
+            <summary>
+            modify a profile in the system
+            </summary>
+            <param name="id"></param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UserProfilesController.DeleteAsync(System.Int32)">
+            <summary>
+            remove a profile in the system
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UserReviewsController.GetAllByUserIdAsync(System.Int32)">
+            <summary>
+            returns all the reviews of a user
+            </summary>
+            <param name="userProfileId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UsersController.GetAllAsync">
+            <summary>
+            returns all the users on the system.
+            </summary>
+            <returns></returns> 
+            <summary>
+            returns all the users on the system.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UsersController.PostAsync(GoingTo_API.Resources.SaveUserResource)">
+            <summary>
+            add an user in the system
+            </summary>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UsersController.PutAsync(System.Int32,GoingTo_API.Resources.SaveUserResource)">
+            <summary>
+            modify an user in the system
+            </summary>
+            <param name="id"></param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.UsersController.DeleteAsync(System.Int32)">
+            <summary>
+            remove an user in the system
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.WalletsController.GetAllAsync">
+            <summary>
+            returns all the wallets in the system
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.WalletsController.PostAsync(GoingTo_API.Resources.SaveWalletResource)">
+            <summary>
+            add a wallet in the system
+            </summary>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.WalletsController.PutAsync(System.Int32,GoingTo_API.Resources.SaveWalletResource)">
+            <summary>
+            modify a wallet in the system
+            </summary>
+            <param name="id"></param>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoingTo_API.Controllers.WalletsController.DeleteAsync(System.Int32)">
+            <summary>
+            remove a wallet in the system
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

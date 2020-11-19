@@ -93,8 +93,10 @@ namespace GoingTo_API.Services
         {
             var existingUserProfile = await _profileRepository.FindById(userProfileId);
             if (existingUserProfile == null)
-                return new ProfileResponse("Profile not found");
+                return new ProfileResponse("");
             return new ProfileResponse(existingUserProfile);
         }
+
+        
     }
 }
