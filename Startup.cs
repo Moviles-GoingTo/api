@@ -126,9 +126,9 @@ namespace GoingTo_API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GoingTo API", Version = "v1" });
                 c.ExampleFilters();
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
+                //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                //c.IncludeXmlComments(xmlPath);
             });
 
             services.AddSwaggerExamplesFromAssemblyOf<Startup>();
