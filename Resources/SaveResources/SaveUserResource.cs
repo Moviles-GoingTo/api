@@ -3,8 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace GoingTo_API.Resources
 {
     public class SaveUserResource
-    {
-       
+    {       
 
         [Required]
         [MaxLength(50)]

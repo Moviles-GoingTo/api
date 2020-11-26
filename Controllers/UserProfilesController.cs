@@ -24,7 +24,7 @@ namespace GoingTo_API.Controllers
         /// returns the profile of a user by id
         /// </summary>
         /// <returns></returns> 
-        [HttpGet] 
+        [HttpGet("{id}")] 
         public async Task<UserProfileResource> GetUserProfileById(int id)
         {
             var userProfile = await _profileService.FindById(id);

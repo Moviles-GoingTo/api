@@ -3,7 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>GoingTo_API</RootNamespace>
-    <UserSecretsId>cc4eabe8-acbe-4640-a4a4-3c0e3b60f46d</UserSecretsId>
+    <UserSecretsId>8999e5e9-4c72-48b6-bca4-74a7eee85235</UserSecretsId>
+    <!--<UserSecretsId>cc4eabe8-acbe-4640-a4a4-3c0e3b60f46d</UserSecretsId>-->
+    <!--<AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+    <AspNetCoreModuleName>AspNetCoreModule</AspNetCoreModuleName>-->
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

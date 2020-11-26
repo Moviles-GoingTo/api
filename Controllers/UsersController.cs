@@ -53,7 +53,7 @@ namespace GoingTo_API.Controllers
         {
             var response = _userService.Authenticate(request);
 
-            if (response == null)
+            if (response.Result == null)
                 return BadRequest(new { message = "Invalid Email or Password." });
 
             return Ok(response.Result);
@@ -91,13 +91,6 @@ namespace GoingTo_API.Controllers
             var userResource = new UserResource("True", 200, "OK");
             return Ok(userResource);
         }
-
-        /// <summary>
-        /// modify an user in the system
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="resource"></param>
-        /// <returns></returns>
 
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAsync(int id, [FromBody] SaveUserResource resource)
