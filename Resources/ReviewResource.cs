@@ -10,6 +10,7 @@ namespace GoingTo_API.Resources
         public string Comment { get; set; }
         public float Stars { get; set; }
         public string ReviewedAt { get; set; }
+        public int LocatableId { get; set; }
         public LocatableResource Locatable { get; set; }
         public UserProfileResource UserProfile { get; set; }
     }

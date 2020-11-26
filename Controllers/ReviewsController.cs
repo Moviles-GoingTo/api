@@ -54,6 +54,8 @@ namespace GoingTo_API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages());
             var review = _mapper.Map<SaveReviewResource, Review>(resource);
+            review.Stars = 2;
+            review.ReviewedAt = "2020-11-19";
             var result = await _reviewService.SaveAsync(review);
 
             if (!result.Success)

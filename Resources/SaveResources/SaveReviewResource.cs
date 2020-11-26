@@ -11,7 +11,7 @@ namespace GoingTo_API.Resources
         [Required]
         [MaxLength(45)]
         public string Comment { get; set; }
-        public int Stars { get; set; }
-        public string ReviewedAt { get; set; }
+        public int LocatableId { get; set; }
+        public int UserProfileId { get; set; }
     }
 }

@@ -88,7 +88,7 @@ namespace GoingTo_API.Controllers
             if (!resultUserProfile.Success)
                 return BadRequest(resultUserProfile.Message);
 
-            var userResource = _mapper.Map<User, UserResource>(resultUser.Resource);
+            var userResource = new UserResource("True", 200, "OK");
             return Ok(userResource);
         }
 

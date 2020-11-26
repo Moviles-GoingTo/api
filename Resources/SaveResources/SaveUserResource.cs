@@ -36,5 +36,15 @@ namespace GoingTo_API.Resources
 
         [Required]
         public int CountryId { get; set; }
+
+        //Datos de laa tarjeta 
+        [Required]
+        public string CardNumber { get; set; }
+
+        [Required]
+        public string ExpirationDate { get; set; }
+
+        [Required]
+        public string Cvv { get; set; }
     }
 }
