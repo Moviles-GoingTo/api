@@ -7,6 +7,12 @@
       "commands": [
         "dotnet-ef"
       ]
+    },
+    "swashbuckle.aspnetcore.cli": {
+      "version": "5.4.1",
+      "commands": [
+        "swagger"
+      ]
     }
   }
 }
