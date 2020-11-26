@@ -780,14 +780,6 @@
             <param name="resource"></param>
             <returns></returns>
         </member>
-        <member name="M:GoingTo_API.Controllers.UsersController.PutAsync(System.Int32,GoingTo_API.Resources.SaveUserResource)">
-            <summary>
-            modify an user in the system
-            </summary>
-            <param name="id"></param>
-            <param name="resource"></param>
-            <returns></returns>
-        </member>
         <member name="M:GoingTo_API.Controllers.UsersController.DeleteAsync(System.Int32)">
             <summary>
             remove an user in the system
