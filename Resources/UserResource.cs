@@ -2,15 +2,8 @@
 {
     public class UserResource
     {
-        public string Message { get; set; }
-        public int Code { get; set; }
-        public string Status { get; set; }
-
-        public UserResource(string message, int code, string status)
-        {
-            this.Message = message;
-            this.Code = code;
-            this.Status = status;
-        }
+        public int Id { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

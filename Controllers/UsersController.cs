@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using GoingTo_API.Domain.Models;
 using GoingTo_API.Domain.Models.Accounts;
 using GoingTo_API.Domain.Services.Accounts;
 using GoingTo_API.Domain.Services.Communications;
@@ -69,8 +70,12 @@ namespace GoingTo_API.Controllers
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] SaveUserResource resource)
         {
+            StandardResult<UserResource> standardResult = null;
             if (!ModelState.IsValid)
-                return BadRequest(ModelState.GetErrorMessages()); 
+            {
+                standardResult = new StandardResult<UserResource>(null, ModelState.GetErrorMessages().ToString(), 500, "Error");
+                return BadRequest(standardResult);
+            }
 
             var user = _mapper.Map<SaveUserResource, User>(resource);
             var userProfile = _mapper.Map<SaveUserResource, UserProfile>(resource); 
@@ -80,16 +85,26 @@ namespace GoingTo_API.Controllers
             var resultUserProfile = await _userProfileService.SaveAsync(userProfile);
 
             if (!resultUser.Success && !resultUserProfile.Success)
-                return BadRequest(resultUser.Message + "\n" + resultUserProfile.Message);
+            {
+                standardResult = new StandardResult<UserResource>(null, resultUser.Message + "\n" + resultUserProfile.Message, 500, "Error");
+                return BadRequest(standardResult);
+            }
 
             if (!resultUser.Success)
-                return BadRequest(resultUser.Message);
+            {
+                standardResult = new StandardResult<UserResource>(null, resultUser.Message, 500, "Error");
+                return BadRequest(standardResult);
+            }
 
             if (!resultUserProfile.Success)
-                return BadRequest(resultUserProfile.Message);
+            {
+                standardResult = new StandardResult<UserResource>(null, resultUserProfile.Message, 500, "Error");
+                return BadRequest(standardResult);
+            }
 
-            var userResource = new UserResource("True", 200, "OK");
-            return Ok(userResource);
+            var userResource = _mapper.Map<User, UserResource>(resultUser.Resource);
+            standardResult = new StandardResult<UserResource>(userResource, "Usuario ingresado", 200, "OK");
+            return Ok(standardResult);
         }
 
         [HttpPut("{id}")]
